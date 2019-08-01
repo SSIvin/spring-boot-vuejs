@@ -1,4 +1,4 @@
-import Axios from 'axios'
+import {HTTP} from "../http-common";
 
 export default {
   state: {
@@ -19,7 +19,7 @@ export default {
     async GET_PLACE_JOB ({ commit, getters }) {
       if (getters.getplace_job.length === 0) {
         // commit('SET_PROCESSING',true)
-        await Axios.get('http://10.10.12.232:9001/api/getAllPlaceJob')
+        await HTTP.get('http://10.10.12.232:9001/api/getAllPlaceJob')
           .then(resp => {
             commit('PLACE_JOB', resp.data)
             // commit('SET_PROCESSING',false)

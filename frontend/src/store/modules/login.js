@@ -18,7 +18,7 @@ export default {
     actions: {
         async login({commit}, {username,password}) {
             //await  Axios.post('http://10.10.12.232:9001/auth',
-            await  HTTP.post('http://10.10.12.232:9001/auth',
+            await  HTTP.post('auth',
                 {
                     username: username,
                     password: password
@@ -34,7 +34,7 @@ export default {
 
                         localStorage.setItem('token', resp.data.token)
                         // console.log(localStorage.getItem('token'))
-                        HTTP.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token')
+                        //HTTP.defaults.headers.common['Authorization'] = 'Bearer_' + localStorage.getItem('token')
                         //HTTP.headers.common['Authorization'] = 'Bearer_'+ resp.data.token
                         //Axios.defaults.headers.common['Authorization'] = 'Bearer_'+ resp.data.token
                             //console.log(resp.data)

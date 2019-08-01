@@ -1,4 +1,4 @@
-import Axios from 'axios'
+import {HTTP} from "../http-common";
 
 export default {
   state: {
@@ -72,7 +72,7 @@ export default {
   },
   actions: {
     async updateMessageAction ({ commit }, data) {
-      await Axios.put('http://10.10.12.232:9001/api/update/' + data.id, data)
+      await HTTP.put('http://10.10.12.232:9001/api/update/' + data.id, data)
         .then(resp => {
           console.log('Save ok')
         })

@@ -11,6 +11,7 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -51,7 +52,7 @@ public class MessageController {
 
    // @RequestMapping(value = "/find", method = {RequestMethod.GET, RequestMethod.POST})
     @PostMapping(path = "/find")
-    //@PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @JsonView(Views.IdName.class)
     public List<Person>  Find(@RequestBody Person person)
     {
